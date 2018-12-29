@@ -6,15 +6,11 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 RUN mkdir -p /root/src/function
 WORKDIR /root/src/function
-COPY ./function/FunctionHandler.csproj  .
+COPY ./function/root.csproj  .
 
-WORKDIR /root/src/
-COPY ./root.csproj  .
-RUN dotnet restore ./root.csproj
+COPY ./function  .
 
-COPY .  .
-
-RUN dotnet publish -c release -o published
+RUN dotnet publish ./root.csproj -c release -o published
 
 FROM microsoft/dotnet:2-aspnetcore-runtime
 
@@ -28,7 +24,7 @@ RUN apt-get update -qy \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root/
-COPY --from=builder /root/src/published .
+COPY --from=builder /root/src/function/published .
 
 ENV fprocess="dotnet ./root.dll"
 ENV cgi_headers="true"
