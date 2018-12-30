@@ -1,4 +1,9 @@
-# How to use this template
+
+# Information about this template
+
+The function here takes in a [HttpContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.httpcontext?view=aspnetcore-2.1), the context object contains request and response objects which the function can directly access.
+
+## How to use this template
 
 1. Clone templates with:   `faas-cli template pull https://github.com/zeerorg/templates`
 2. Create a function:   `faas-cli new {functionName} --lang csharp-http`
