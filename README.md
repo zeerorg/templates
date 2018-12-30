@@ -1,38 +1,16 @@
-# templates
+# My OpenFaas Templates
 
-Official OpenFaaS templates.
+Forked from [Official OpenFaas Templates](https://github.com/openfaas/templates "Github OpenFaas templates"). I use these to run and deploy my own workloads on OpenFaas.
 
-To find out more about the OpenFaaS templates see the [faas-cli](https://github.com/openfaas/faas-cli).
+These also include the official OpenFaas Templates. New templates added are:
 
-> Note: The templates are completely customizable - so if you want to alter them please do fork them and use `faas template pull` to make use of your updated versions.
+| Name | Language | Version | Watchdog   | Link
+|:-----|:---------|:--------|:-----------|:---------
+| csharp-http | C# | N/A | Of-Watchdog | [C# template](https://github.com/zeerorg/templates/tree/master/template/csharp-http)
+| csharp-http-armhf | C# | N/A | Of-Watchdog | [C# ARM template](https://github.com/zeerorg/templates/tree/master/template/csharp-http-armhf)
 
-The current version of OpenFaaS templates use the original `watchdog` which `forks` processes - a bit like CGI. The newer watchdog [of-watchdog](https://github.com/openfaas-incubator/of-watchdog) is more similar to fastCGI/HTTP and should be used for any benchmarking or performance testing along with one of the newer templates. Contact the project for more information.
+## Some Info
 
-### Templates Developers / Contributors
-
-See [contributing guide](https://github.com/openfaas/templates/blob/master/CONTRIBUTING.md).
-
-### License
-
-This project is part of the OpenFaaS project licensed under the MIT License.
-
-### Templates in store
-
-| Name | Language | Version | Linux base | Watchdog | Link
-|:-----|:---------|:--------|:-----------|:---------|:----
-| csharp | C# | N/A | Alpine Linux 3.8 | Classic | [C# template](https://github.com/openfaas/templates/tree/master/template/csharp)
-| dockerfile | Dockerfile | N/A | Alpine Linux 3.8 | Classic | [Dockerfile template](https://github.com/openfaas/templates/tree/master/template/dockerfile)
-| go-armhf | Go | 1.10.4 | Alpine Linux 3.8 | Classic | [Go armhf template](https://github.com/openfaas/templates/tree/master/template/go-armhf)
-| go | Go | 1.10.4 | Alpine Linux 3.8 | Classic | [Go template](https://github.com/openfaas/templates/tree/master/template/go)
-|java8 | Java | 8 | OpenJDK Alpine Linux | Classic | [Java template](https://github.com/openfaas/templates/tree/master/template/java8)
-| node-arm64 | NodeJS | 8.9.1 | N/A | Classic | [NodeJS arm64 template](https://github.com/openfaas/templates/tree/master/template/node-arm64)
-| node-armhf | NodeJS | N/A | Alpine Linux 3.6 | Classic | [NodeJS armhf template](https://github.com/openfaas/templates/tree/master/template/node-armhf) 
-| node | NodeJS | 8.9.1 | Alpine Linux | Classic | [NodeJS template](https://github.com/openfaas/templates/tree/master/template/node)
-| php7 | PHP | 7.2 | Alpine Linux | Classic | [PHP 7 template](https://github.com/openfaas/templates/tree/master/template/php7)
-| python-armhf | Python | 2.7 | Alpine Linux | Classic | [Python 2.7 armhf template](https://github.com/openfaas/templates/tree/master/template/python-armhf)
-| python | Python | 2.7 | Alpine Linux | Classic | [Python 2.7 template](https://github.com/openfaas/templates/tree/master/template/python)
-| python3-armhf | Python | 3.6 | Alpine Linux | Classic | [Python 3.6 armhf template](https://github.com/openfaas/templates/tree/master/template/python3-armhf)
-| python3 | Python | 3 | Alpine Linux | Classic | [Python 3 template](https://github.com/openfaas/templates/tree/master/template/python3)
-| ruby | Ruby | 2.5.1 | Alpine Linux 3.7 | Classic| [Ruby template](https://github.com/openfaas/templates/tree/master/template/ruby)
-
-For more information on the templates check out the [docs](https://docs.openfaas.com/cli/templates/).
+1. New templates will be based on the newer [Of-Watchdog](https://github.com/openfaas-incubator/of-watchdog).
+2. Every template will have armhf counterpart, since most of the time I need to deploy them to my raspberry-pi.
+3. Try to make them in such a way that they are locally testable, ie they can be developed on the local machine.
